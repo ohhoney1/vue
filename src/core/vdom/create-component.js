@@ -109,9 +109,12 @@ export function createComponent (
     return
   }
 
-  const baseCtor = context.$options._base
+  const baseCtor = context.$options._base // *cnjs*: 即 Vue 这个构造函数
 
   // plain options object: turn it into a constructor
+  // *cnjs*: 如果 Ctor 是个对象，比如：我们使用组件时 export default { name: 'Button', Components: { Button } },
+  // *cnjs*: 扩展当前 Ctor 对象，使之变为为一个构造函数。即 Ctor 为 Vue 的一个子类。
+  // *cnjs*: Vue.extend 这个函数的定义：src/core/global-api/extend.js 中。
   if (isObject(Ctor)) {
     Ctor = baseCtor.extend(Ctor)
   }

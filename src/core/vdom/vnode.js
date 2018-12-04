@@ -38,28 +38,28 @@ export default class VNode {
     componentOptions?: VNodeComponentOptions,
     asyncFactory?: Function
   ) {
-    this.tag = tag
-    this.data = data
-    this.children = children
-    this.text = text
-    this.elm = elm
-    this.ns = undefined
-    this.context = context
-    this.fnContext = undefined
-    this.fnOptions = undefined
-    this.fnScopeId = undefined
-    this.key = data && data.key
-    this.componentOptions = componentOptions
-    this.componentInstance = undefined
-    this.parent = undefined
-    this.raw = false
-    this.isStatic = false
-    this.isRootInsert = true
-    this.isComment = false
-    this.isCloned = false
-    this.isOnce = false
-    this.asyncFactory = asyncFactory
-    this.asyncMeta = undefined
+    this.tag = tag // *cnjs*: 当前节点的标签名
+    this.data = data // *cnjs*: 当前节点对应的对象，包含了一些具体的数据信息
+    this.children = children // *cnjs*: 当前节点的子节点
+    this.text = text // *cnjs*: 当前节点的文本
+    this.elm = elm // *cnjs*: 当前虚拟节点对应的真是dom节点
+    this.ns = undefined // *cnjs*: 当前节点的命名空间
+    this.context = context // *cnjs*: 编译作用域
+    this.fnContext = undefined // *cnjs*: 函数式组件的真正作用域
+    this.fnOptions = undefined // *cnjs*: 函数式组件的 options 选项，为了 SSR 的缓存而用
+    this.fnScopeId = undefined // *cnjs*: 函数式组件的 scope id
+    this.key = data && data.key // *cnjs*: 节点的 key 属性，被当做节点的标志，用以优化
+    this.componentOptions = componentOptions // *cnjs*: 组件的 options 选项
+    this.componentInstance = undefined // *cnjs*: 当前节点对应的组件的实例
+    this.parent = undefined // *cnjs*: 当前节点的父节点
+    this.raw = false // *cnjs*: 原生html节点
+    this.isStatic = false // *cnjs*: 静态节点
+    this.isRootInsert = true // *cnjs*: 作为根节点插入
+    this.isComment = false // *cnjs*: 注释节点
+    this.isCloned = false // *cnjs*: 克隆节点
+    this.isOnce = false // *cnjs*: v-once 指令
+    this.asyncFactory = asyncFactory // *cnjs*: 异步组件的工厂函数
+    this.asyncMeta = undefined // *cnjs*: TODO:
     this.isAsyncPlaceholder = false
   }
 
